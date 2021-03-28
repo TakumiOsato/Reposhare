@@ -1,14 +1,12 @@
 import React from "react"
-import { StyleSheet, Text, View, Button } from "react-native"
 import { NavigationContainer } from "@react-navigation/native"
-
-import RootStack from "./navigation/TabNavigator/TabNavigation"
+import HomeStacks from "./navigation/StackNavigator/HomeStacks"
 
 
 function App() {
   return (
     <NavigationContainer>
-      <RootStack />
+      <HomeStacks />
     </NavigationContainer>
   )
 }
