@@ -1,5 +1,6 @@
 import React from "react"
-import { StyleSheet, Text, View, Button } from "react-native"
+import { StyleSheet, View } from "react-native"
+import ProfEdit from "./organisms/ProfEdit"
 
 const styles = StyleSheet.create({
   container: {
@@ -13,7 +14,7 @@ const styles = StyleSheet.create({
 const ProfileEdit = () => {
   return (
     <View style={styles.container}>
-      <Text>ProfileEdit</Text>
+      <ProfEdit />
     </View>
   )
 }
