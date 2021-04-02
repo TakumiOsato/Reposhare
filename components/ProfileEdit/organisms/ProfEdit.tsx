@@ -9,16 +9,17 @@ import db from "../../../firebase/firebase"
 import { Value } from "react-native-reanimated"
 
 
+
 function ProEdit(props) {
   const [Name, setName] = useState("")
   const [Intro, setIntro] = useState("")
 
   const doChangeName = (value) => {
-    setName(Value)
+    setName(value)
   }
 
-  const doChangeIntro = (Value) => {
-    setIntro(Value)
+  const doChangeIntro = (value) => {
+    setIntro(value)
   }
 
   const doEdit = async () => {

@@ -1,5 +1,6 @@
 import React from "react"
-import { StyleSheet, Text, View, Button } from "react-native"
+import { View, Text, Button, StyleSheet } from "react-native"
+import HomeSrc from "./organisms/HomeScr"
 
 const styles = StyleSheet.create({
   container: {
@@ -13,13 +14,8 @@ const styles = StyleSheet.create({
 const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Text>レポート一覧</Text>
-      <Button
-        title="詳細へ"
-        onPress={() => navigation.navigate("RepoDetail")}
-      />
+      <HomeSrc onPress={() => navigation.navigate("RepoDetail")} />
     </View>
   )
 }
 export default HomeScreen
-
