@@ -1,5 +1,6 @@
 import React from "react"
 import { StyleSheet, Text, View, Button } from "react-native"
+import Mypage from "./organisms/Mypage"
 
 const styles = StyleSheet.create({
   container: {
@@ -13,11 +14,7 @@ const styles = StyleSheet.create({
 const MyPage = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Text>MyPage</Text>
-      <Button
-        title="編集する"
-        onPress={() => navigation.navigate("ProfileEdit")}
-      />
+      <Mypage onPress={() => navigation.navigate("ProfileEdit")} />
     </View>
   )
 }

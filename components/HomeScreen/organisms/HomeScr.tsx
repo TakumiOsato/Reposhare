@@ -3,7 +3,6 @@ import { View, Text } from "react-native"
 import Title from "../atoms/Title"
 import RepoCard from "../molecules/RepoCard"
 import db from "../../../firebase/firebase"
-import { useLinkProps } from "@react-navigation/native"
 
 const HomeScr = (props) => {
   const [items, setItems] = useState("no item")
