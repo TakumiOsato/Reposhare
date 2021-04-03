@@ -1,7 +1,7 @@
 import React from "react"
 import { View, Button } from "react-native"
 
-const button = (props) => {
+const Btn = (props) => {
   return (
     <View>
       <Button onPress={props.onPress} title={props.title} />
@@ -9,4 +9,4 @@ const button = (props) => {
   )
 }
 
-export default button
+export default Btn

@@ -1,5 +1,7 @@
 import React from "react"
 import { StyleSheet, Text, View, Button } from "react-native"
+import RepoImg from "./atoms/RepoImg"
+import Repodetail from "./organisms/Repodetail"
 
 const styles = StyleSheet.create({
   container: {
@@ -13,16 +15,13 @@ const styles = StyleSheet.create({
 const RepoDetail = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Text>RepoDetail</Text>
       <Button
         title="他人のプロフィール"
         onPress={() => navigation.navigate("ProfileShow")}
       />
-      <Button
-        title="チャット画面"
-        onPress={() => navigation.navigate("Chats")}
-      />
+      <Repodetail onPress={() => navigation.navigate("Chats")} />
     </View>
   )
 }
+
 export default RepoDetail

@@ -3,6 +3,7 @@ import {
   combineReducers,
   applyMiddleware
 } from "redux"
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { persistReducer, persistStore } from "redux-persist"
 import storage from "redux-persist/lib/storage"
 
@@ -10,7 +11,7 @@ const createStore = () => {
   //persistの設定
   const persistConfig = {
     key: "root", // Storageに保存されるキー名を指定する
-    storage  // 保存先としてlocalStorageがここで設定される
+    storage: AsyncStorage  // 保存先としてlocalStorageがここで設定される
   }
 
   const initial = {
@@ -28,10 +29,10 @@ const createStore = () => {
     }
   }
 
-  // //reducerまとめ
-  // const rootReducer = combineReducers({
-  //   userData: FireReducer
-  // })
+  //reducerまとめ
+  const rootReducer = combineReducers({
+    userData: FireReducer
+  })
 
   //persistConfig + reducersで永続化されたpersistedReducerを作る
   const persistedReducer = persistReducer(persistConfig, FireReducer)
