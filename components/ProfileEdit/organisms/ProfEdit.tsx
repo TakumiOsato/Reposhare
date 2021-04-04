@@ -10,7 +10,7 @@ import { Value } from "react-native-reanimated"
 
 
 
-function ProEdit(props) {
+function ProEdit() {
   const [Name, setName] = useState("")
   const [Intro, setIntro] = useState("")
 

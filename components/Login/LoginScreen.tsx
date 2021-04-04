@@ -1,6 +1,6 @@
 import React from "react"
-import { View, Text, Button, StyleSheet } from "react-native"
-import HomeSrc from "./organisms/HomeScr"
+import { StyleSheet, View } from "react-native"
+import Loginscreen from "./organisms/Loginscreen"
 
 const styles = StyleSheet.create({
   container: {
@@ -11,11 +11,11 @@ const styles = StyleSheet.create({
   }
 })
 
-const HomeScreen = ({ navigation }) => {
+const LoginScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <HomeSrc onPress={() => navigation.navigate("RepoDetail")} />
+      <Loginscreen navigation={() => navigation.navigate("Hometabs")} />
     </View>
   )
 }
-export default HomeScreen
+export default LoginScreen
