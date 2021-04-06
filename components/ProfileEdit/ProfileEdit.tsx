@@ -11,10 +11,10 @@ const styles = StyleSheet.create({
   }
 })
 
-const ProfileEdit = () => {
+const ProfileEdit = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <ProfEdit />
+      <ProfEdit onPress={() => navigation.navigate("Mypage")} />
     </View>
   )
 }

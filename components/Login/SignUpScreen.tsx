@@ -15,7 +15,7 @@ const SignUpScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <SignUpscreen
-        navigation={() => navigation.navigate("Hometabs")}
+        navigation={() => navigation.navigate("Mypage")}
         onPress={() => navigation.navigate("LoginScreen")}
       />
     </View>

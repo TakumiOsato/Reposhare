@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
 const LoginScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Loginscreen navigation={() => navigation.navigate("Hometabs")} />
+      <Loginscreen navigation={() => navigation.navigate("Mypage")} />
     </View>
   )
 }

@@ -1,53 +1,52 @@
-import React,{ useEffect, useState } from "react" 
-import {View,StyleSheet} from "react-native"
+import React, { useEffect, useState } from "react"
+import { View, Text } from "react-native"
 import Title from "../atoms/Title"
 import MyProf from "../molecules/MyProf"
 import EditBtn from "../atoms/EditBtn"
-import { connect } from "react-redux"
 import db from "../../../firebase/firebase"
-// import { useRouter } from "next/router"
+import { connect } from "react-redux"
+import { encodeEmail } from "../../../redux/Lib"
 
-// let userImage = "no data"
-// let userName  = "no data"
-// let userIntro = "no data"
+let userImage = "no data"
+let name = "no data"
+let intro = "no data"
 
-function Mypage(props){
-  //  const [update, setUpdate] = useState(false)
-  // const router = useRouter()
+function Mypage(props) {
+  const [update, setUpdate] = useState(false)
+  const Email = encodeEmail(props.email)
+  const getFireData = async () => {
+    // Emailでfirebaseを参照
+    await db
+      .collection("users")
+      .doc(Email)
+      .get()
+      .then(async (doc) => {
+        const profileData = doc.data()
+        name = profileData.name
+        intro = profileData.intro
+        // favoriteSubject = profileData.profile.favoriteSubject
+        // userImage = await getProfileImageUrl(profileData.imageName)
+      })
+    setUpdate(update ? false : true)
+  }
+  useEffect(() => {
+    getFireData()
+  }, [])
 
-  // const getFireData = async () => {
-  //   // emailにReduxからユーザーのemailを取得
-  //   const email = props.email
-  //   // emailでfirebaseを参照
-  //   await db
-  //     .collection("users")
-  //     .doc(email)
-  //     .get()
-  //     .then(async (doc) => {
-  //       // 取得したデータを定数に入れてから、ステートに入れる
-  //       const profileData = doc.data()
-  //       userImage = await getProfileImageUrl(profileData.imageName)
-  //       userName = profileData.profile.userName
-  //       favoriteSubject=profileData.profile.favoriteSubject
-  //       userIntro = profileData.profile.introduction
-  //     })
-  //   setUpdate(update ? false : true)
-  // }
-  // useEffect(() => {
-  //   if (!props.login) {
-  //     return router.push("/")
-  //   }
-  //   getFireData()
-  // }, [])
-  
-  return( 
+  return (
     <View>
       <Title />
-      {/* <MyProf src={userImage} name={userName} favoSub={favoriteSubject} intro={userIntro} /> */}
+      <Text>{name}</Text>
+      <MyProf
+        // src={userImage}
+        name={name}
+        // favoSub={favoriteSubject}
+        intro={intro}
+      />
       <EditBtn onPress={props.onPress} />
-
     </View>
   )
 }
 
+Mypage = connect((state) => state)(Mypage)
 export default Mypage

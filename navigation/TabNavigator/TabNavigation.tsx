@@ -8,7 +8,7 @@ const Tab = createBottomTabNavigator()
 
 export default function HomeTabs() {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator initialRouteName="ホーム">
       <Tab.Screen name="ホーム" component={HomeScreen} />
       <Tab.Screen name="マイページ" component={MyPage} />
       <Tab.Screen name="新規登録/ログイン" component={SignUpScreen} />

@@ -13,9 +13,14 @@ const Stack = createStackNavigator()
 
 const HomeStacks = () => {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="HomeScreen" component={HomeTabs} />
-      <Stack.Screen name="Mypage2" component={MyPage} />
+    <Stack.Navigator
+      initialRouteName="HomeTabs"
+      screenOptions={{
+        headerShown: false
+      }}
+    >
+      <Stack.Screen name="HomeTabs" component={HomeTabs} />
+      <Stack.Screen name="Mypage" component={MyPage} />
       <Stack.Screen name="RepoDetail" component={RepoDetail} />
       <Stack.Screen name="ProfileEdit" component={ProfileEdit} />
       <Stack.Screen name="ProfileShow" component={ProfileShow} />

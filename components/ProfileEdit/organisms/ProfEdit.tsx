@@ -1,19 +1,16 @@
-import React, {useState} from "react"
-import { View } from "react-native"
+import React, { useState } from "react"
+import { View, Text, Pressable } from "react-native"
 import Title from "../atoms/Title"
 import InputForm from "../molecules/InputForm"
 import EditBtn from "../atoms/EditBtn"
-
-import firebase from "firebase"
+import { connect } from "react-redux"
+import { encodeEmail } from "../../../redux/Lib"
 import db from "../../../firebase/firebase"
-import { Value } from "react-native-reanimated"
 
-
-
-function ProEdit() {
+function ProEdit(props) {
   const [Name, setName] = useState("")
   const [Intro, setIntro] = useState("")
-
+  const Email = encodeEmail(props.email)
   const doChangeName = (value) => {
     setName(value)
   }
@@ -23,23 +20,22 @@ function ProEdit() {
   }
 
   const doEdit = async () => {
-    await db
-    .collection("users")
-    .add({
-      Name: Name,
-      Intro: Intro
+    await db.collection("users").doc(Email).set({
+      name: Name,
+      intro: Intro
     })
   }
-
-
 
   return (
     <View>
       <Title />
       <InputForm onChangeName={doChangeName} onChangeIntro={doChangeIntro} />
-      <EditBtn OnPress={doEdit} />
+        {/* EditBtnを押すとマイページに飛ぶようにしたい */}
+      <Pressable onPress={props.onPress}/>
+      <EditBtn onPress={doEdit} />
     </View>
   )
 }
 
+ProEdit = connect((state) => state)(ProEdit)
 export default ProEdit
