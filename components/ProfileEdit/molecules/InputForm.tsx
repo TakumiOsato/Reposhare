@@ -1,20 +1,17 @@
 import React from "react"
 import { View } from "react-native"
-import NameInputTitle from "../atoms/NameInputTitle"
-import NameInput from "../atoms/NameInput"
-import IntroInputTitle from "../atoms/IntroInputTitle"
+import Caption from "../atoms/Caption"
+import NameInput from "../atoms/NameInput";
 import IntroInput from "../atoms/IntroInput"
 
 const InputForm = (props) => {
-  return(
-
+  return (
     <View>
-      <NameInputTitle />
+      <Caption caption={"名前"} />
       <NameInput onChangeText={props.onChangeName} />
-      <IntroInputTitle />
+      <Caption caption={"自己紹介"} />
       <IntroInput onChangeText={props.onChangeIntro} />
     </View>
-
-  ) 
+  )
 }
 export default InputForm

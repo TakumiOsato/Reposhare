@@ -8,6 +8,7 @@ import MyPage from "../../components/MyPage/MyPage"
 import ProfileEdit from "../../components/ProfileEdit/ProfileEdit"
 import LoginScreen from "../../components/Login/LoginScreen"
 import SignUpScreen from "../../components/Login/SignUpScreen"
+import RepoAdd from "../../components/RepoAdd/RepoAdd"
 
 const Stack = createStackNavigator()
 
@@ -27,6 +28,7 @@ const HomeStacks = () => {
       <Stack.Screen name="Chats" component={Chats} />
       <Stack.Screen name="LoginScreen" component={LoginScreen} />
       <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
+      <Stack.Screen name="RepoAdd" component={RepoAdd} />
     </Stack.Navigator>
   )
 }

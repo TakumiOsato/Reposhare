@@ -4,8 +4,9 @@ import Title from "../atoms/Title"
 import RepoInfo from "../molecules/RepoInfo"
 import ReqBtn from "../atoms/ReqBtn"
 import db from "../../../firebase/firebase"
+import { connect } from "react-redux"
+import { encodeEmail } from "../../../redux/Lib"
 
-let repoData = ""
 let title = ""
 let repoImgUrl = ""
 let due = ""
@@ -14,17 +15,15 @@ let detail = ""
 
 function Repodetail(props) {
   const [update, setUpdata] = useState(false)
-  // const router = useRouter()
-  // const email = props.email
+  // reportIdを取得
 
   const getRepoData = async () => {
-    //reduxからidをとってくる
     await db
       .collection("reports")
-      // .doc()
+      // .doc(reportId)
       .get()
       .then((doc) => {
-        repoData = doc.data()
+        const repoData = doc.data()
         title = repoData.title
         repoImgUrl = repoData.repoImgUrl
         due = repoData.due
@@ -47,4 +46,5 @@ function Repodetail(props) {
   )
 }
 
+Repodetail = connect((state) => state)(Repodetail)
 export default Repodetail

@@ -1,13 +1,13 @@
 import React from "react"
 import Input from "../../../elements/Input"
 
-const NameInput = (props) => {
+const TitleInput = (props) => {
   return (
   <Input 
     onChangeText={props.onChangeText}
     numberOfLines={1}
-    placeholder={"名前を入力してください"}
+    placeholder={"例)機構学のレポート"}
     />
   )
 }
-export default NameInput
+export default TitleInput

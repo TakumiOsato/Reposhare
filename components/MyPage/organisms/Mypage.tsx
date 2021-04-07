@@ -6,6 +6,7 @@ import EditBtn from "../atoms/EditBtn"
 import db from "../../../firebase/firebase"
 import { connect } from "react-redux"
 import { encodeEmail } from "../../../redux/Lib"
+import RepoAddBtn from "../atoms/RepoAddBtn"
 
 let userImage = "no data"
 let name = "no data"
@@ -44,6 +45,7 @@ function Mypage(props) {
         intro={intro}
       />
       <EditBtn onPress={props.onPress} />
+      <RepoAddBtn onPress={props.naviRepoAdd} />
     </View>
   )
 }

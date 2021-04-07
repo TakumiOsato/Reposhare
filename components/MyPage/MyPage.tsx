@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
 const MyPage = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Mypage onPress={() => navigation.navigate("ProfileEdit")} />
+      <Mypage onPress={() => navigation.navigate("ProfileEdit")} naviRepoAdd={() => navigation.navigate("RepoAdd")}/>
     </View>
   )
 }

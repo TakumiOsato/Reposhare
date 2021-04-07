@@ -1,13 +1,13 @@
 import React from "react"
 import Input from "../../../elements/Input"
 
-const NameInput = (props) => {
+const DueInput = (props) => {
   return (
   <Input 
     onChangeText={props.onChangeText}
     numberOfLines={1}
-    placeholder={"名前を入力してください"}
+    placeholder={"例)2020/04/30"}
     />
   )
 }
-export default NameInput
+export default DueInput

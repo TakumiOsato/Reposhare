@@ -1,13 +1,13 @@
 import React from "react"
 import Input from "../../../elements/Input"
 
-const NameInput = (props) => {
+const PriceInput = (props) => {
   return (
   <Input 
     onChangeText={props.onChangeText}
     numberOfLines={1}
-    placeholder={"名前を入力してください"}
+    placeholder={"例)4,000"}
     />
   )
 }
-export default NameInput
+export default PriceInput
