@@ -1,6 +1,10 @@
 import React from "react"
-import { View, Pressable } from "react-native"
+import { View, Pressable, Button } from "react-native"
 import { Card, Text } from "react-native-elements"
+// StackNavigetorコンポーネント内のコンポーネントをNavigateする場合は{useNavigation}を用いてnavigation propsを渡す
+import { useNavigation } from "@react-navigation/native"
+
+// typescriptによる型の定義
 // interface RepoCardProps {
 //   onPress: string
 //   title: string
@@ -9,9 +13,21 @@ import { Card, Text } from "react-native-elements"
 // }
 
 const RepoCard = (props) => {
+  const navigation = useNavigation()
   return (
     <View>
-      <Pressable onPress={props.onPress}>
+      <Pressable
+    // RepoDetailへのページ遷移とrouteを用いたデータの受け渡し
+        onPress={() =>
+          navigation.navigate("RepoDetail", {
+            title: props.title,
+            src: props.src,
+            due: props.due,
+            price: props.price,
+            detail: props.detail
+          })
+        }
+      >
         <Card>
           <Card.Title>{props.title}</Card.Title>
           <Card.Divider />

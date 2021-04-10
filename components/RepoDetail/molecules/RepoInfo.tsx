@@ -5,16 +5,15 @@ import Detail from "../atoms/Detail"
 import Due from "../atoms/Due"
 import Price from "../atoms/Price"
 
-const UserImg = (props) => {
+const RepoInfo = (props) => {
   return (
     <View>
       <RepoImg src={props.src} />
       <Due due={props.due} />
       <Price price={props.price} />
       <Detail detail={props.detail} />
-      
     </View>
   )
 }
 
-export default UserImg
+export default RepoInfo

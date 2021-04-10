@@ -20,7 +20,9 @@ const HomeScr = (props) => {
               onPress={props.onPress}
               title={doc.data().title}
               src={doc.data().repoImgurl}
+              due={doc.data().due}
               price={doc.data().price}
+              detail={doc.data().detail}
               key={doc.id.toString()}
             />
           )

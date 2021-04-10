@@ -12,14 +12,28 @@ const styles = StyleSheet.create({
   }
 })
 
-const RepoDetail = ({ navigation }) => {
+const RepoDetail = ({ route, navigation }) => {
+  // RepoCardからrouteでデータを取得
+  const { title } = route.params
+  const { src } = route.params
+  const { due } = route.params
+  const { price } = route.params
+  const { detail } = route.params
   return (
     <View style={styles.container}>
+      <Repodetail
+        /* JOSNシリアル化によって取得したデータの永続化 */
+        title={JSON.stringify(title)}
+        src={JSON.stringify(src)}
+        due={JSON.stringify(due)}
+        price={JSON.stringify(price)}
+        detail={JSON.stringify(detail)}
+        onPress={() => navigation.navigate("Chats")}
+      />
       <Button
         title="他人のプロフィール"
         onPress={() => navigation.navigate("ProfileShow")}
       />
-      <Repodetail onPress={() => navigation.navigate("Chats")} />
     </View>
   )
 }

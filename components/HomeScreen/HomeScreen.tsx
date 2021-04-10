@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
 const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <HomeSrc onPress={() => navigation.navigate("RepoDetail")} />
+      <HomeSrc onPress={() => navigation.navigate("RepoDetail")}/>
     </View>
   )
 }

@@ -2,7 +2,7 @@ import React from "react"
 import Txt from "../../../elements/Txt"
 
 const Due = (props) => {
-  return <Txt title={props.due} />
+  return <Txt text={props.due} />
 }
 
-export default Txt
+export default Due
