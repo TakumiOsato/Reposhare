@@ -4,7 +4,6 @@ import Title from "../atoms/Title"
 import RepoInfo from "../molecules/RepoInfo"
 import ReqBtn from "../atoms/ReqBtn"
 
-
 function Repodetail(props) {
   return (
     <View>

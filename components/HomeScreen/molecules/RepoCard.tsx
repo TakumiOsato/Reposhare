@@ -17,11 +17,11 @@ const RepoCard = (props) => {
   return (
     <View>
       <Pressable
-    // RepoDetailへのページ遷移とrouteを用いたデータの受け渡し
+        // RepoDetailへのページ遷移とrouteを用いたデータの受け渡し
         onPress={() =>
           navigation.navigate("RepoDetail", {
             title: props.title,
-            src: props.src,
+            url: props.url,
             due: props.due,
             price: props.price,
             detail: props.detail
@@ -31,7 +31,7 @@ const RepoCard = (props) => {
         <Card>
           <Card.Title>{props.title}</Card.Title>
           <Card.Divider />
-          <Card.Image source={props.src} />
+          <Card.Image source={{ uri: props.url }} />
           <Text>¥{props.price}</Text>
         </Card>
       </Pressable>

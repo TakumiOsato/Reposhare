@@ -1,6 +1,8 @@
 import React from "react"
 import { View } from "react-native"
 import Caption from "../atoms/Caption"
+import RepoImg from "../atoms/RepoImg"
+import ImgRegBtn from "../atoms/ImgRegBtn"
 import TitleInput from "../atoms/TitleInput"
 import PriceInput from "../atoms/PriceInput"
 import CategoryInput from "../atoms/CategoryInput"
@@ -10,6 +12,8 @@ import DetailInput from "../atoms/DetailInput"
 const InputForm = (props) => {
   return (
     <View>
+      <RepoImg src={props.src} />
+      <ImgRegBtn onPress={props.onChangeImg} />
       <Caption caption={"レポート名"} />
       <TitleInput onChangeText={props.onChangeTitle} />
       <Caption caption={"値段"} />

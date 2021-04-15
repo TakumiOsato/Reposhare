@@ -19,7 +19,7 @@ const HomeScr = (props) => {
             <RepoCard
               onPress={props.onPress}
               title={doc.data().title}
-              src={doc.data().repoImgurl}
+              url={doc.data().repoImgUrl}
               due={doc.data().due}
               price={doc.data().price}
               detail={doc.data().detail}

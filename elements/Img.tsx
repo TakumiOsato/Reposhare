@@ -1,16 +1,13 @@
 import React from "react"
 import { View } from "react-native"
-import { Avatar } from "react-native-elements"
+import { Image } from "react-native"
 
 const textinput = (props) => {
   return (
     <View>
-      <Avatar
-        size={props.size}
-        rounded
-        title={props.title}
-        activeOpacity={0.7}
+      <Image
         source={props.src}
+        style={{ width: 200, height: 200 }}
       />
     </View>
   )

@@ -1,5 +1,5 @@
 import React from "react"
-import { Text, View } from "react-native"
+import { Text, View ,Image} from "react-native"
 import UserImg from "../atoms/UserImg"
 import UserName from "../atoms/UserName"
 import FavoriteSubject from "../atoms/FavoriteSubject"

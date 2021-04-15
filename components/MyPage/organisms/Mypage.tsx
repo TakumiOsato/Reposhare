@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { View, Text } from "react-native"
+import { View } from "react-native"
 import Title from "../atoms/Title"
 import MyProf from "../molecules/MyProf"
 import EditBtn from "../atoms/EditBtn"
@@ -8,7 +8,7 @@ import { connect } from "react-redux"
 import { encodeEmail } from "../../../redux/Lib"
 import RepoAddBtn from "../atoms/RepoAddBtn"
 
-let userImage = "no data"
+let userImgUrl = "no data"
 let name = "no data"
 let intro = "no data"
 
@@ -26,7 +26,7 @@ function Mypage(props) {
         name = profileData.name
         intro = profileData.intro
         // favoriteSubject = profileData.profile.favoriteSubject
-        // userImage = await getProfileImageUrl(profileData.imageName)
+        userImgUrl = profileData.userImgUrl
       })
     setUpdate(update ? false : true)
   }
@@ -37,9 +37,8 @@ function Mypage(props) {
   return (
     <View>
       <Title />
-      <Text>{name}</Text>
       <MyProf
-        // src={userImage}
+        src={{ uri: userImgUrl }}
         name={name}
         // favoSub={favoriteSubject}
         intro={intro}
