@@ -33,7 +33,7 @@ function Profileshow(props) {
 
   return (
     <View>
-      <Title />
+      <Title createrName={name}/>
       <MyProf
         src={{ uri: userImgUrl }}
         name={name}
