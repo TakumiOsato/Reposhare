@@ -1,5 +1,5 @@
 import React from "react"
-import { View, StyleSheet } from "react-native"
+import { KeyboardAvoidingView, StyleSheet } from "react-native"
 import Repoadd from "./organisms/Repoadd"
 
 const styles = StyleSheet.create({
@@ -13,9 +13,12 @@ const styles = StyleSheet.create({
 
 const RepoAdd = ({ navigation }) => {
   return (
-    <View style={styles.container}>
-      <Repoadd onPress={() => navigation.navigate("Mypage")} />
-    </View>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={styles.container}
+    >
+      <Repoadd navigation={() => navigation.navigate("Mypage")} />
+    </KeyboardAvoidingView>
   )
 }
 

@@ -9,6 +9,8 @@ import ProfileEdit from "../../components/ProfileEdit/ProfileEdit"
 import LoginScreen from "../../components/Login/LoginScreen"
 import SignUpScreen from "../../components/Login/SignUpScreen"
 import RepoAdd from "../../components/RepoAdd/RepoAdd"
+import FileUpLoad from "../../components/PDFControl/FileUpLoad"
+import FileLoad from "../../components/PDFControl/FileLoad"
 
 const Stack = createStackNavigator()
 
@@ -29,6 +31,8 @@ const HomeStacks = () => {
       <Stack.Screen name="LoginScreen" component={LoginScreen} />
       <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
       <Stack.Screen name="RepoAdd" component={RepoAdd} />
+      <Stack.Screen name="FileUpLoad" component={FileUpLoad} />
+      <Stack.Screen name="FileLoad" component={FileLoad} />
     </Stack.Navigator>
   )
 }

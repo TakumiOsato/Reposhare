@@ -6,6 +6,7 @@ const IntroInput = (props) => {
   <Input 
     onChangeText={props.onChangeText}
     numberOfLines={8}
+    value={props.value}
     placeholder={"自己紹介を入力してください"}
     />
   )

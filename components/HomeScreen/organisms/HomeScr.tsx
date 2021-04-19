@@ -23,6 +23,7 @@ const HomeScr = (props) => {
               due={doc.data().due}
               price={doc.data().price}
               detail={doc.data().detail}
+              createrId={doc.data().createrId}
               key={doc.id.toString()}
             />
           )

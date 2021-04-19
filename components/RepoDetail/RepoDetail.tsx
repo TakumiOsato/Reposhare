@@ -18,6 +18,7 @@ const RepoDetail = ({ route, navigation }) => {
   const { due } = route.params
   const { price } = route.params
   const { detail } = route.params
+  const { createrId } = route.params
   return (
     <View style={styles.container}>
       <Repodetail
@@ -29,8 +30,12 @@ const RepoDetail = ({ route, navigation }) => {
         onPress={() => navigation.navigate("Chats")}
       />
       <Button
-        title="他人のプロフィール"
-        onPress={() => navigation.navigate("ProfileShow")}
+        title="作成者のプロフィール"
+        onPress={() =>
+          navigation.navigate("ProfileShow", {
+            createrId: createrId
+          })
+        }
       />
     </View>
   )

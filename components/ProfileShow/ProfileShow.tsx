@@ -1,5 +1,6 @@
 import React from "react"
 import { StyleSheet, Text, View, Button } from "react-native"
+import Profileshow from "./organisms/Profileshow.tsx"
 
 const styles = StyleSheet.create({
   container: {
@@ -10,10 +11,12 @@ const styles = StyleSheet.create({
   }
 })
 
-const ProfileShow = () => {
+const ProfileShow = ({ route }) => {
+  const { createrId } = route.params
+
   return (
     <View style={styles.container}>
-      <Text>ProfileShow</Text>
+      <Profileshow createrId={createrId} />
     </View>
   )
 }

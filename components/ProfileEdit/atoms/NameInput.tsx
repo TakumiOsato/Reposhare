@@ -6,6 +6,7 @@ const NameInput = (props) => {
   <Input 
     onChangeText={props.onChangeText}
     numberOfLines={1}
+    value={props.value}
     placeholder={"名前を入力してください"}
     />
   )

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { View, Pressable, Text } from "react-native"
+import { View, Button } from "react-native"
 import Title from "../atoms/Title"
 import InputForm from "../molecules/InputForm"
 import EditBtn from "../atoms/EditBtn"
@@ -8,12 +8,16 @@ import { encodeEmail } from "../../../redux/Lib"
 import db from "../../../firebase/firebase"
 import firebase from "firebase"
 import * as ImagePicker from "expo-image-picker"
+import { useNavigation } from "@react-navigation/native"
 
 function ProEdit(props) {
   const [Name, setName] = useState("")
   const [Intro, setIntro] = useState("")
-  const [url, setUrl] = useState(null)
+  const [uri, setUri] = useState(null)
   const Email = encodeEmail(props.email)
+
+  // firebase StrageのUrlを入れる変数
+  let fireUrl: string
 
   const doChangeName = (value) => {
     setName(value)
@@ -37,6 +41,20 @@ function ProEdit(props) {
     })()
   }, [])
 
+  // 以前登録したデータの取得
+
+  useEffect(() => {
+    db.collection("users")
+      .doc(Email)
+      .get()
+      .then((doc) => {
+        setName(doc.data().name)
+        setIntro(doc.data().intro)
+        setUri(doc.data().userImgUrl)
+      })
+  }, [])
+
+  // 画像データの取得
   const doChangeImg = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
       // 要求するメディアタイプの選択
@@ -51,12 +69,10 @@ function ProEdit(props) {
     console.log(result)
 
     if (!result.cancelled) {
-      setUrl(result.uri)
+      setUri(result.uri)
     }
-
-    
   }
-
+  // 画像データの変換とfireStrageへの登録
   const doEdit = async () => {
     // ファイルメタデータの作製(jpeg)
     const metadata = {
@@ -65,8 +81,11 @@ function ProEdit(props) {
     // 文字列としてurlを生成
     const postIndex = Date.now().toString()
     const storage = firebase.storage()
-    const response = await fetch(url)
+    // 外部のリソース(fireStrage)にリソース(uri)を簡単に記述するためのAPI,responseで基本的に受け取る
+    const response = await fetch(uri)
+    // blobでバイナリーデータを生成
     const blob = await response.blob()
+    // strageにuploadするための参照
     const uploadRef = storage.ref("UserImages").child(`${postIndex}`)
 
     // storageに画像を保存
@@ -74,11 +93,11 @@ function ProEdit(props) {
       alert("画像の保存に失敗しました")
     })
 
-    // storageのダウンロードURLをsetUrlに更新
+    // storageのダウンロードURLをfireUrlに入れる
     await uploadRef
       .getDownloadURL()
       .then((DownloadURL) => {
-        setUrl(DownloadURL)
+        fireUrl = DownloadURL
       })
       .catch(() => {
         alert("失敗しました")
@@ -87,22 +106,28 @@ function ProEdit(props) {
     await db.collection("users").doc(Email).set({
       name: Name,
       intro: Intro,
-      userImgUrl: url
+      userImgUrl: fireUrl
     })
+
+    // EditBtnを押すとマイページに飛ぶようにしたい
+    // useNavigationを取得し、クラスにnavigationを渡す
+    const navigation = useNavigation()
+    {
+      ;() => navigation.navigate("Mypage")
+    }
   }
 
   return (
     <View>
       <Title />
-      <Text>{url}</Text>
       <InputForm
-        src={{ uri: url }}
+        src={{ uri: uri }}
+        nameInputValue={Name}
+        introInputValue={Intro}
         onChangeName={doChangeName}
         onChangeIntro={doChangeIntro}
         onChangeImg={doChangeImg}
       />
-      {/* EditBtnを押すとマイページに飛ぶようにしたい */}
-      <Pressable onPress={props.onPress} />
       <EditBtn onPress={doEdit} />
     </View>
   )

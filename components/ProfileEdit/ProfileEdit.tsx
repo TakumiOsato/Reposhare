@@ -1,5 +1,5 @@
 import React from "react"
-import { StyleSheet, View } from "react-native"
+import { StyleSheet, KeyboardAvoidingView } from "react-native"
 import ProfEdit from "./organisms/ProfEdit"
 
 const styles = StyleSheet.create({
@@ -12,10 +12,14 @@ const styles = StyleSheet.create({
 })
 
 const ProfileEdit = ({ navigation }) => {
+
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={styles.container}
+    >
       <ProfEdit onPress={() => navigation.navigate("Mypage")} />
-    </View>
+    </KeyboardAvoidingView>
   )
 }
 export default ProfileEdit

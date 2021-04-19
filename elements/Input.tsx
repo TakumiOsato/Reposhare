@@ -8,7 +8,8 @@ const textinput = (props) => {
         onChangeText={props.onChangeText}
         multiline
         blurOnSubmit={true}
-        clearTextOnFocus={true}
+        value={props.value}
+        // clearTextOnFocus={true}
         numberOfLines={props.numberOfLines}
         placeholder={props.placeholder}
       />

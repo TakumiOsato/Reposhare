@@ -9,13 +9,13 @@ import UserImg from "../atoms/UserImg"
 const InputForm = (props) => {
   return (
     <View>
+      <Caption caption={"プロフィール画像"}　/>
       <UserImg src={props.src} />
       <ImgRegBtn onPress={props.onChangeImg} />
       <Caption caption={"名前"} />
-      <NameInput onChangeText={props.onChangeName} />
-      <Caption caption={"プロフィール画像"}　/>
+      <NameInput onChangeText={props.onChangeName} value={props.nameInputValue}/>
       <Caption caption={"自己紹介"} />
-      <IntroInput onChangeText={props.onChangeIntro} />
+      <IntroInput onChangeText={props.onChangeIntro} value={props.introInputValue} />
     </View>
   )
 }

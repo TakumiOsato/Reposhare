@@ -24,7 +24,8 @@ const RepoCard = (props) => {
             url: props.url,
             due: props.due,
             price: props.price,
-            detail: props.detail
+            detail: props.detail,
+            createrId: props.createrId
           })
         }
       >
