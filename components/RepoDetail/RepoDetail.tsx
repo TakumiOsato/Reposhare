@@ -41,4 +41,5 @@ const RepoDetail = ({ route, navigation }) => {
   )
 }
 
+
 export default RepoDetail
